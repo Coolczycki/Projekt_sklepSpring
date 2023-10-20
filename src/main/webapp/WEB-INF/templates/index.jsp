@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Aplikacja Sklep Spring</title>
-    <link rel="stylesheet" type="text/css" href="styl.css">
+    <link rel="stylesheet" type="text/css" href="../../styl.css">
 </head>
 
 <body>

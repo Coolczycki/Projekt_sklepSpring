@@ -10,21 +10,21 @@ import java.time.LocalDateTime;
 @Controller
 public class RootController {
 
-    @GetMapping("/")
+    @GetMapping("")
     public String index(){
-        return "index.jsp";
+        return "index";
     }
 
-    @GetMapping("/hello")
+    @GetMapping("hello")
     @ResponseBody
     public String hello() {
         return "Hello World";
     };
 
-    @GetMapping("/godzina")
+    @GetMapping("godzina")
     public String ktoraGodzina(Model model) {
         LocalDateTime teraz = LocalDateTime.now();
         model.addAttribute("dt", teraz);
-        return "pokaz_czas.jsp";
+        return "pokaz_czas";
     }
 }

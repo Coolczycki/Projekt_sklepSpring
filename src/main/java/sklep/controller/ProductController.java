@@ -21,7 +21,7 @@ public class ProductController {
     public String readAll(Model model) {
         List<Product> products = productRepository.findAll();
         model.addAttribute("products", products);
-        return "/WEB-INF/templates/products.jsp";
+        return "products";
     }
 
     @GetMapping("/products/{numer}")
@@ -30,10 +30,10 @@ public class ProductController {
 
         if (product.isPresent()) {
             model.addAttribute("products", product.get());
-            return "/WEB-INF/templates/product.jsp";
+            return "product";
         } else {
             model.addAttribute("productId", numer);
-            return "/WEB-INF/templates/missing_product.jsp";
+            return "missing_product";
 
         }
 
