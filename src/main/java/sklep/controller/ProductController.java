@@ -21,16 +21,21 @@ public class ProductController {
     public String readAll(Model model) {
         List<Product> products = productRepository.findAll();
         model.addAttribute("products", products);
-        return "products.jsp";
+        return "/WEB-INF/templates/products.jsp";
     }
 
     @GetMapping("/products/{numer}")
     public String readOne(Model model, @PathVariable Integer numer) {
-        Optional<Product> products = productRepository.findById(numer);
+        Optional<Product> product = productRepository.findById(numer);
 
+        if (product.isPresent()) {
+            model.addAttribute("products", product.get());
+            return "/WEB-INF/templates/product.jsp";
+        } else {
+            model.addAttribute("productId", numer);
+            return "/WEB-INF/templates/missing_product.jsp";
 
-        model.addAttribute("products", products.get());
-        return "product.jsp";
+        }
+
     }
-
 }
